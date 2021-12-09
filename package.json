@@ -1,0 +1,16 @@
+{
+  "name": "rust-node-fibonacci",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "run-node": "node index.js node",
+    "run-native": "node index.js native",
+    "run-wasm": "node index.js wasm",
+    "build-native": "rm -rf index.node && cargo-cp-artifact -nc index.node -- cargo build --release --features native --message-format=json-render-diagnostics",
+    "build-wasm": "wasm-pack build --target nodejs"
+  },
+  "dependencies": {
+    "cargo-cp-artifact": "^0.1.5"
+  },
+  "devDependencies": {}
+}
